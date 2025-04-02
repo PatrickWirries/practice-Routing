@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Post } from '../post';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-post-list',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.css'
 })
-export class PostListComponent {
+export class PostListComponent implements OnInit{
+dataService = inject(DataService);
+posts:Post[] = [];
 
+ngOnInit(){
+  this.posts = this.dataService.posts;
+}
 }

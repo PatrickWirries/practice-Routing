@@ -8,7 +8,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }), 
     // adding withComponentInputBinding() to enable use of input signal
     // to directly access route parameters.
-    provideRouter(routes)
+    provideRouter(routes, withComponentInputBinding())
   ]
 };
 

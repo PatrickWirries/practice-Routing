@@ -1,4 +1,6 @@
-import { Component} from '@angular/core';
+import { Component, Inject, input} from '@angular/core';
+import { DataService } from '../data.service';
+import { Post } from '../post';
 
 
 @Component({
@@ -8,6 +10,11 @@ import { Component} from '@angular/core';
   styleUrl: './post-detail.component.css'
 })
 export class PostDetailComponent {
+
+  dataService = Inject(DataService);
+  id = input.required<number>();
+
+  post!: Post;  
 
   //Option - 1 (pre-Angular 19): inject the ActivatedRouted service that 
   // would allow you to access the activated route so, we can access the 
